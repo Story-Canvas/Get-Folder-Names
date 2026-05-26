@@ -1,0 +1,18 @@
+#-------------------------------#
+#	Created by: SC-Dev	#
+#-------------------------------#
+
+$directoryPath = "C:\temp\"
+
+if (-Not (Test-Path -Path $directoryPath -PathType Container)) {
+    Write-Host "The provided path is not a valid directory. Please try again." -ForegroundColor Red
+    exit
+}
+
+$folderNames = Get-ChildItem -Path $directoryPath -Directory | Select-Object Name, LastWriteTime
+
+#------------------------------------------------------#
+#	Output to Out-GridView for copy and paste      #
+#------------------------------------------------------#
+
+$folderNames | Out-GridView -Title "Folder Names in $directoryPath"
