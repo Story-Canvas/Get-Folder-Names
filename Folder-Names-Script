@@ -11,8 +11,8 @@ if (-Not (Test-Path -Path $directoryPath -PathType Container)) {
 
 $folderNames = Get-ChildItem -Path $directoryPath -Directory | Select-Object Name, LastWriteTime
 
-#------------------------------------------------------#
-#	Output to Out-GridView for copy and paste         #
-#------------------------------------------------------#
+#---------------------------------------------------#
+#	Output to Out-GridView for copy and paste       #
+#---------------------------------------------------#
 
 $folderNames | Out-GridView -Title "Folder Names in $directoryPath"
